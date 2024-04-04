@@ -61,10 +61,6 @@ export default function Translate() {
   const [fromLang, setFromLange] = useState(options[0]);
   const [toLang, setToLange] = useState(options[1]);
 
-  const [updateLangs, setUpdateLangs] = useState<Option[]>([]);
-  const [updateTransLangs, setUpdateTransLangs] = useState<Option[]>([]);
-  //const [switchLang, setSwitchLang] = useState(false);
-
   let sendRequest = false;
   let timeOut: NodeJS.Timeout;
   const apiCallHandler = (e: React.FormEvent<HTMLTextAreaElement>) => {
@@ -88,8 +84,6 @@ export default function Translate() {
   const handleClickReverse = () => {
     const langsCopy = [...langs];
     const transLangsCopy = [...transLangs];
-
-    //setSwitchLang(!switchLang);
 
     const dupLangs = langsCopy.some((item) => item.value === toLang.value);
     if (!dupLangs) {
