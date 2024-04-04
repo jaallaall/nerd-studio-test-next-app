@@ -63,7 +63,7 @@ export default function Translate() {
 
   const [updateLangs, setUpdateLangs] = useState<Option[]>([]);
   const [updateTransLangs, setUpdateTransLangs] = useState<Option[]>([]);
-  const [switchLang, setSwitchLang] = useState(false);
+  //const [switchLang, setSwitchLang] = useState(false);
 
   let sendRequest = false;
   let timeOut: NodeJS.Timeout;
@@ -88,21 +88,26 @@ export default function Translate() {
   const handleClickReverse = () => {
     const langsCopy = [...langs];
     const transLangsCopy = [...transLangs];
-    const dupLangs = langsCopy.some((item) => item.value !== fromLang.value);
-    const dupTrans = transLangsCopy.some((item) => item.value !== toLang.value);
-    setSwitchLang(!switchLang);
-    if (dupLangs) {
+
+    //setSwitchLang(!switchLang);
+
+    const dupLangs = langsCopy.some((item) => item.value === toLang.value);
+    if (!dupLangs) {
       langsCopy.unshift(toLang);
       langsCopy.pop();
-      setUpdateLangs(langsCopy);
-      setFromLange(toLang);
+      setLangs(langsCopy);
     }
-    if (dupTrans) {
+    setFromLange(toLang);
+
+    const dupTrans = transLangsCopy.some(
+      (item) => item.value === fromLang.value
+    );
+    if (!dupTrans) {
       transLangsCopy.unshift(fromLang);
       transLangsCopy.pop();
-      setUpdateTransLangs(transLangsCopy);
-      setToLange(fromLang);
+      setTransLangs(transLangsCopy);
     }
+    setToLange(fromLang);
   };
 
   return (
@@ -112,8 +117,8 @@ export default function Translate() {
         setFromLang={setFromLange}
         onInput={apiCallHandler}
         text={message}
-        setLangs={switchLang ? setUpdateLangs : setLangs}
-        langs={switchLang ? updateLangs : langs}
+        setLangs={setLangs}
+        langs={langs}
         fromLang={fromLang}
       />
       <div className="flex justify-center pt-6">
@@ -129,8 +134,8 @@ export default function Translate() {
         text={message}
         setToLang={setToLange}
         handleDelete={() => setMessage("")}
-        setTransLangs={switchLang ? setUpdateTransLangs : setTransLangs}
-        transLangs={switchLang ? updateTransLangs : transLangs}
+        setTransLangs={setTransLangs}
+        transLangs={transLangs}
         toLang={toLang}
       />
     </div>

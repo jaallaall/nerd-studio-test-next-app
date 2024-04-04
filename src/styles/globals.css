@@ -66,3 +66,8 @@
     }
 
 }
+
+.react-select .select {
+    background-image: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAyNSI+PGcgZGF0YS1uYW1lPSJJY29uIDEiPjxwYXRoIGZpbGw9IiMzOTIxNjQiIGQ9Ik0xMSwyMGE5LDksMCwxLDEsOS05QTksOSwwLDAsMSwxMSwyMFpNMTEsM2E4LDgsMCwxLDAsOCw4QTgsOCwwLDAsMCwxMSwzWiIvPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjcuNzMiIHg9IjE5LjI3IiB5PSIxNS45IiBmaWxsPSIjMzkyMTY0IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMTkuNzcgMTkuNzcxKSIvPjwvZz48L3N2Zz4=');
+    background-size: 18px 18px, 4px 4px;
+}

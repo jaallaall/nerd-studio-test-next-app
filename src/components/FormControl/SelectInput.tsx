@@ -28,7 +28,7 @@ const dropdownIndicatorStyles =
 const menuStyles = "mt-2 text-sm !relative";
 const groupHeadingStyles = "ml-3 mt-2 mb-1 text-base-conetnt/10";
 const optionStyles = {
-  base: "hover:cursor-pointer px-3 py-2 rounded flex items-center",
+  base: "optionSelect hover:cursor-pointer px-3 py-2 rounded flex items-center",
   focus: "bg-base-200 active:bg-base-300",
   selected:
     "selectedOption [&_.selected]:after:content-['✔'] [&_.selected]:after:inline-block [&_.selected]:after:ms-1 [&_.selected]:after:ml-2 [&_.selected]:after:text-green-500 text-base-conetnt/10",
@@ -53,11 +53,12 @@ export default function SelectInput<
   Group extends GroupBase<Option> = GroupBase<Option>
 >(props: Props<Option, IsMulti, Group>) {
   return (
-    <div className="w-full relative">
+    <div className="w-full relative react-select">
       <Select
         {...props}
         menuIsOpen
         // components={{ DropdownIndicator }}
+
         closeMenuOnSelect={props.isMulti ? false : true}
         noOptionsMessage={() => "موردی وجود ندارد"}
         unstyled

@@ -1,5 +1,5 @@
 import { ChevronDown } from "../Icons/regular";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 
 type Props = {
@@ -13,6 +13,11 @@ export default function Dropdown({ children }: Props) {
   const handleClickShow = () => {
     setShow(!show);
   };
+
+  useEffect(() => {
+    const optSelect = document.querySelector(".optionSelect");
+    optSelect?.addEventListener("click", () => setShow(false));
+  }, []);
 
   useOnClickOutside(ref, () => setShow(false));
 
