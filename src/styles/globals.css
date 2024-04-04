@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@import url(fonts.css);
+@tailwind utilities;
+
+@layer base {
+
+    a,
+    ins {
+        @apply !no-underline
+    }
+
+    h1,
+    .h1 {
+        @apply text-2xl font-bold md:text-4xl tracking-tighter;
+    }
+
+    h2,
+    .h2 {
+        @apply text-xl font-bold md:text-3xl tracking-tighter;
+    }
+
+    h3,
+    .h3 {
+        @apply text-lg font-bold md:text-2xl tracking-tighter;
+    }
+
+    h4,
+    .h4 {
+        @apply text-base font-bold md:text-lg tracking-tighter;
+    }
+
+    ::selection {
+        @apply bg-primary bg-primary-content;
+    }
+
+    .last-slide .card {
+        @apply grayscale-[150%] pointer-events-none
+    }
+
+    .last-slide .card-body {
+        @apply opacity-35
+    }
+
+    @media (min-width: 1280px) {
+        .container {
+            max-width: 100% !important;
+        }
+    }
+
+
+}
+
+@layer components {
+
+    [aria-disabled=true] {
+        @apply border-base-100 bg-base-200 text-base-content/20
+    }
+
+    [aria-disabled=true]>label {
+        @apply border-none bg-transparent
+    }
+
+    .btn-custom {
+        @apply bg-primary border-primary text-primary-content hover:bg-primary-focus hover:border-primary-focus
+    }
+
+}
